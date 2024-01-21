@@ -49,6 +49,8 @@ public class LethalExpansion : BaseUnityPlugin
         public static ConfigEntry<string> ExcludedMoons;
         public static ConfigEntry<string> ExcludedScrap;
 
+        public static ConfigEntry<bool> ShowVersionNumberOnMainMenu;
+
         public static void Bind(ConfigFile config)
         {
             // Both Orion and Aquatis "require" templatemod (seemingly they reference scrap added by it)
@@ -61,6 +63,7 @@ public class LethalExpansion : BaseUnityPlugin
 
             ExcludedMoons = config.Bind<string>("Moons & Scrap", "ExcludedMoons", "hidden", "Comma separated list of LethalExpansion based moons to exclude from the game, use `hidden` (without `) to remove all the hidden moons (better LLL compatibility)");
             ExcludedScrap = config.Bind<string>("Moons & Scrap", "ExcludedScrap", "", "Comma separated list of LethalExpansion based scrap to exclude from the game");
+            ShowVersionNumberOnMainMenu = config.Bind<bool>("Main Menu", "ShowVersionNumberOnMainMenu", true, "Set true to show the version number of LethalExpansionCore on the main menu");
 
             DebugLogs = config.Bind<bool>("Debug", "DebugLogs", false, "Debug logs :D");
         }
